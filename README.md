@@ -55,7 +55,7 @@ For example, `'a or not b'` will not work, but `'a | !b'` will. In principle it 
 
 Causal models must be expressed as Structural Causal Models (SCMs). Non-deterministic models like Causal Bayes Nets are not supported, but one can always formulate an SCM that emulates a Causal Bayes Net by introducing 'noise' variables.
 
-On the positive side, any causal structure that can be expressed by an SCM with binary variable should be supported. This includes 'deep' chain structures like A --> B --> C --> D --> E, and confounded models where the effect of the cause C on the effect E is confounded by other variables.
+On the positive side, any causal structure that can be expressed by an SCM with binary variables should be supported. This includes 'deep' chain structures like A --> B --> C --> D --> E, and confounded models where the effect of the cause C on the effect E is confounded by other variables.
 
 ### How these scripts work
 
