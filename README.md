@@ -61,7 +61,7 @@ On the positive side, any causal structure that can be expressed by an SCM with 
 
 We use an analytical approach to compute causal judgments for the CES and NS
 models. Our goal is to compute a causal judgment for the extent to which $C=c$ caused $E=e$. Instead of explicitly simulating counterfactual worlds by sampling
-from the SCM, we instead analytically compute the probability distribution
+from the SCM, we analytically compute the probability distribution
 over counterfactual worlds that would follow from this sampling process. This makes computation much faster.
 First it is useful to describe what this sampling process would look like
 (this will help understand what the analytical computation is trying to
@@ -79,15 +79,20 @@ without implementing step 2.
 
 3) Determine the value of all other variables by applying the relevant
 structural equations.
+
 The distribution over counterfactual worlds that we wish to compute is the
 relative frequency of worlds simulated this way, as the number of samples
 goes to infinity.
 
-To compute this probability distribution analytically, we do the following.
+To compute this probability distribution analytically, we do the following. We list each possible world (i.e. combination of variable values) as a row in a table. We then assign a probability to each world:
 
-We list each possible world (i.e. combination of variable values) as a row in a table. We then assign a probability to each world. We first compute the probability of each exogenous variable (defined by the Lucas-Kemp process). Then for each endogenous variable X, we compute $p(X=x|pa(X))$ as 0 or 1, depending on whether $X=x$ is consistent with the value of the variable's parents (i.e. $pa(X)$ ) in the current world. (For example if we have $A := B$, and in the current world $A=1$ but $B=0$, then $p(B=0|pa(B))$ is 0). Note that since we are using SCMs with fully observed variables the conditional probabilities here are deterministic. Then we compute a probability $p(w)$ for the whole world by using the factorization defined by the network structure, i.e. $p(w)=\prod_{X} p(X|pa(X))$.
+1) We compute the probability of each exogenous variable (defined by the Lucas-Kemp process).
+   
+2) For each endogenous variable X, we compute $p(X=x|pa(X))$ as 0 or 1, depending on whether $X=x$ is consistent with the value of the variable's parents (i.e. $pa(X)$ ) in the current world. (For example if we have $A := B$, and in the current world $A=1$ but $B=0$, then $p(B=0|pa(B))$ is 0). Note that since we are using SCMs with fully observed variables the conditional probabilities here are deterministic.
+   
+3) We compute a probability $p(w)$ for the whole world by using the factorization defined by the network structure, i.e. $p(w)=\prod_{X} p(X|pa(X))$.
 
-If C is an endogenous variable, we must perform an additional step to ensure that the distribution reflects the fact that C's value is set by interventions. We first compute the marginal probability $p(C=c)$ in the distribution we just computed. Then we replace $p(C=c|pa(C))$ with $p(C=c)$ in every world. Doing this ensures that the probability of $C=c$ is now independent from the value of C's parents, as required by the fact that C is set by interventions. After doing this, we now re-compute the probability of each world.
+4) If C is an endogenous variable, we must perform an additional step to ensure that the distribution reflects the fact that C's value is set by interventions. We first compute the marginal probability $p(C=c)$ in the distribution we just computed. Then we replace $p(C=c|pa(C))$ with $p(C=c)$ in every world. Doing this ensures that the probability of $C=c$ is now independent from the value of C's parents, as required by the fact that C is set by interventions. After doing this, we now re-compute the probability of each world.
 
 After we have obtained the probability distribution over counterfactual worlds, it is easy to analytically compute the correlation between $C=c$ and $E=e$ in this distribution (for the CES model). We can also analytically compute Necessity and Sufficiency (for the NS model).
 
