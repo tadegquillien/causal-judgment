@@ -40,6 +40,8 @@ The first two arguments say that we want to see to what extent A caused E. The n
 
 Running this command will return a 'causal score' from -1 to 1 (for CES) or from 0 to 1 (for NS). Higher values indicate higher actual causal strength. For the CES model, a negative value like -.8 indicates a very weak causal score, not something like 'negative' causation. And -.8 is weaker than for example -.4.
 
+More examples are provided in the `examples.R` script.
+
 References:
 
 Icard, Kominsky & Knobe (2017). Normality and actual causal strength. <i>Cognition</i>.
