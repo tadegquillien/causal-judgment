@@ -9,23 +9,30 @@ In this file, we give examples of how to compute causal judgments, describe curr
 First, run everything in the 'main.R', 'ces.R', and 'ns.R' files, to load the necessary functions.
 
 Computing a causal judgment requires three steps:
+
 -Specify a causal model,
+
 -Specify what happened in the actual world,
+
 -Request a causal judgment.
 
 For example, suppose that variable E happens if both A and B happen. We specify this causal model as:
-
+```r
 causalmodel <- list(e='a&b', a=.1, b=.9)
+```
 
 The string 'a&b' specifies the structural equation for E. The numbers .1 and .9 are the exogenous probabilities for A and B.
 
 Next we must specify what happens in the actual world:
 
 actual_world <- list(e=1, a=1, b=1).
+
 This says that in the actual world, all variables have value 1.
 
 Finally we request a causal judgment:
+
 compute_judgment('a', 'e', causalmodel, actual_world, 'ces', .7)
+
 The first two arguments say that we want to see to what extent A caused E. The next two arguments specify the causal model and the actual-world value of the variables (defined above). The fifth argument specifies the computational model we want to use (here, CES). The last argument specifies the value of the stability parameter (how much counterfactual simulation is 'anchored' to the actual world). This argument is optional, by default s=0. 
 
 Running this command will return a 'causal score' from -1 to 1 (for CES) or from 0 to 1 (for NS). Higher values indicate higher actual causal strength. For the CES model, a negative value like -.8 indicates a very weak causal score, not something like 'negative' causation. And -.8 is weaker than for example -.4.
@@ -59,10 +66,12 @@ We sample each counterfactual world by doing the following:
 
 1) Sample each exogenous variable according to the Lucas-Kemp process
 (see Lucas & Kemp, 2015; Quillien & Lucas, 2023).
+
 2) If C is endogenous, sample the value of C by making a random intervention
 on C, where C is sampled from p(C). p(C) is the marginal probability of C: it
 is the probability we would get if we simply generated counterfactual worlds
 without implementing step 2.
+
 3) Determine the value of all other variables by applying the relevant
 structural equations.
 The distribution over counterfactual worlds that we wish to compute is the
