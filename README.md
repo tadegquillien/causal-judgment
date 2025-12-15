@@ -44,7 +44,7 @@ References:
 
 Icard, Kominsky & Knobe (2017). Normality and actual causal strength. <i>Cognition</i>.
 
-Quillien & Lucas (2023). Counterfactuals and the logic of causal selection. Psychological Review.
+Quillien & Lucas (2023). Counterfactuals and the logic of causal selection. <i>Psychological Review</i>.
 
 ### Limitations
 
@@ -93,4 +93,4 @@ After we have obtained the probability distribution over counterfactual worlds, 
 
 References:
 
-Lucas & Kemp (2015). An improved probabilistic account of counterfactual reasoning. Psychological Review.
+Lucas & Kemp (2015). An improved probabilistic account of counterfactual reasoning. <i>Psychological Review</i>.
