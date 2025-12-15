@@ -6,7 +6,7 @@ In this file, we give examples of how to compute causal judgments, describe curr
 
 ### How to use
 
-First, run everything in the `main.R`, `ces.R`, and `ns.R` files, to load the necessary functions. You can import the files by either pulling the repository (if familiar with git) or downloading these files by clicking on the Green 'Code' button and clicking 'Download (as Zip)'.
+First, run everything in the `main.R`, `ces.R`, and `ns.R` files, to load the necessary functions. You can import the files by either pulling the repository (if familiar with git) or downloading the files by clicking on the Green 'Code' button and then 'Download ZIP'.
 
 Computing a causal judgment requires three steps:
 
