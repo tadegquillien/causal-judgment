@@ -46,19 +46,19 @@ create_structural_function <- function(equation_string) {
   return(prob_function)
 }
 
-
-
-# example usage:
-# create function for E = A & B
-probE <- create_structural_function("!a_c_ & B")
-print(probE)
-
-# Create function for more complex equation: F = (A | B) & C
-probF <- create_structural_function("(a2 | b) & c")
-print(probF)
-
-# for an exogenous probability
-create_structural_function(.9)
+# 
+# 
+# # example usage:
+# # create function for E = A & B
+# probE <- create_structural_function("!a_c_ & B")
+# print(probE)
+# 
+# # Create function for more complex equation: F = (A | B) & C
+# probF <- create_structural_function("(a2 | b) & c")
+# print(probF)
+# 
+# # for an exogenous probability
+# create_structural_function(.9)
 
 
 ### make_function_list() -------------------------------------------------------

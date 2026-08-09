@@ -86,12 +86,12 @@ compute_necessity <- function(x_var, y_var, causal_model, actual_world) {
 
 
 # example call
-causal_model <- list(e='a&z', a=.5, c = 'a', d='c', z=.5)
-causalmod <- make_function_list(causal_model)
-actual_world <- list(e=1, a=1, c=1, d=1, z=1)
-compute_counterfactual_value('e', 0, 'c', causalmod, actual_world)
-compute_necessity( 'a', 'e', causalmod, actual_world)
-compute_necessity( 'c', 'e', causalmod, actual_world)
+# causal_model <- list(e='a&z', a=.5, c = 'a', d='c', z=.5)
+# causalmod <- make_function_list(causal_model)
+# actual_world <- list(e=1, a=1, c=1, d=1, z=1)
+# compute_counterfactual_value('e', 0, 'c', causalmod, actual_world)
+# compute_necessity( 'a', 'e', causalmod, actual_world)
+# compute_necessity( 'c', 'e', causalmod, actual_world)
 
 
 ### Sufficiency ----------------------------------------------------------------
@@ -159,18 +159,18 @@ compute_sufficiency <- function(var, outcome, actual_world, causal_model, d=df){
 }
 
 # test
-causal_model <- list(e='a&z', a=.5, c = 'a', d='c', z=.5)
-causalmod <- make_function_list(causal_model)
-actual_world <- list(e=1, a=1, c=1, d=1, z=1)
-dtest <- compute_probabilities(causalmod, actual_world)
-compute_sufficiency('a', 'e', actual_world, causalmod, d=dtest)
-
-# test with a chain structure
-causal_model <- list(e='z&c', z='a&b', a=.2, b=.6, d='a', c=.3)
-causalmod <- make_function_list(causal_model)
-actual_world <- list(e=1, z=1, a=1, b=1, d=1, c=1)
-dtest <- compute_probabilities(causalmod, actual_world)
-compute_sufficiency('a', 'e', actual_world, causalmod, d=dtest)
+# causal_model <- list(e='a&z', a=.5, c = 'a', d='c', z=.5)
+# causalmod <- make_function_list(causal_model)
+# actual_world <- list(e=1, a=1, c=1, d=1, z=1)
+# dtest <- compute_probabilities(causalmod, actual_world)
+# compute_sufficiency('a', 'e', actual_world, causalmod, d=dtest)
+# 
+# # test with a chain structure
+# causal_model <- list(e='z&c', z='a&b', a=.2, b=.6, d='a', c=.3)
+# causalmod <- make_function_list(causal_model)
+# actual_world <- list(e=1, z=1, a=1, b=1, d=1, c=1)
+# dtest <- compute_probabilities(causalmod, actual_world)
+# compute_sufficiency('a', 'e', actual_world, causalmod, d=dtest)
 
 
 ### full model: integrate necessity and sufficiency by weighing by p(c)---------
@@ -186,20 +186,20 @@ ns <- function(var, outcome,  actual_world, d=df, causal_model=cm){
 }
 
 ## example call
+# 
+# # setting things up
+# conjunctiveModel <- list(e='a&b', a=.1, b=.9)
+# disjunctiveModel <- list(e='a|b', a=.1, b=.9)
+# actual_world <- list(e=1, a=1, b=1)
+# causal_model_c <- make_function_list(conjunctiveModel)
+# causal_model_d <- make_function_list(disjunctiveModel)
+# df_c <- compute_probabilities(causal_model_c, actual_world)
+# df_d <- compute_probabilities(causal_model_d, actual_world)
 
-# setting things up
-conjunctiveModel <- list(e='a&b', a=.1, b=.9)
-disjunctiveModel <- list(e='a|b', a=.1, b=.9)
-actual_world <- list(e=1, a=1, b=1)
-causal_model_c <- make_function_list(conjunctiveModel)
-causal_model_d <- make_function_list(disjunctiveModel)
-df_c <- compute_probabilities(causal_model_c, actual_world)
-df_d <- compute_probabilities(causal_model_d, actual_world)
-
-# in a conjunctive model
-ns('a', 'e', actual_world, df_c, causal_model_c)
-ns('b', 'e', actual_world, df_c, causal_model_c)
-
-# in a disjunctive model
-ns('a', 'e', actual_world, df_d, causal_model_d)
-ns('b', 'e', actual_world, df_d, causal_model_d)
+# # in a conjunctive model
+# ns('a', 'e', actual_world, df_c, causal_model_c)
+# ns('b', 'e', actual_world, df_c, causal_model_c)
+# 
+# # in a disjunctive model
+# ns('a', 'e', actual_world, df_d, causal_model_d)
+# ns('b', 'e', actual_world, df_d, causal_model_d)
