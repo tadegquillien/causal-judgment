@@ -1,4 +1,4 @@
-## a
+
 ## this script contains the main functions used by both computational models
 
 # -create_structural_function() parses the structural equations and exogenous 
