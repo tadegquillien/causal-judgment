@@ -1,9 +1,21 @@
 ### compute_judgment() ---------------------------------------------------------
 
-# this is the general causal judgment function. it is essentially a wrapper over
-# the ces() and ns() function, so in order to use it we first need to define
-# these functions (run the 'ces.R' and 'ns.R' files to do this).
+#' The general causal judgment function. It is essentially a wrapper 
+#' over the ces() and ns() functions.
 
+#' @param var Character string giving the candidate cause variable.
+#' @param outcome Character string giving the outcome variable.
+#' @param causal_model A named list specifying the causal model.
+#' @param actual_world A named list specifying the values of variables
+#'   in the actual world. The names must match those in `causal_model`.
+#' @param model Character string specifying the causal judgment model.
+#'   Currently, `"ces"` and `"ns"` are supported.
+#' @param s A numeric: the stability parameter.
+#'
+#' @return A numeric causal judgment.
+#'
+#' @export
+#' 
 compute_judgment <- function(var, outcome, causal_model, actual_world, 
                              model, s=0){
   

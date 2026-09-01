@@ -7,6 +7,21 @@
 # probabilities) and return a function implementing the structural equation or 
 # exogenous probability
 
+#' Parse a structural function (or exogenous probability)
+#'
+#' Parses a string representing a structural equation or probability and
+#' converts it into an R function. Variable names appearing in the equation
+#' become arguments to the resulting function. Numeric inputs are interpreted
+#' as exogenous probabilities.
+#'
+#' For example, `"a & b"` is converted into a function equivalent to
+#' `function(a, b) a & b`.
+#'
+#' @param equation_string A string representing a structural equation,
+#'   or a numeric value representing an exogenous probability.
+#'
+#' @return An R function implementing the structural equation or,
+#'   for an exogenous variable, a function returning its probability.
 
 create_structural_function <- function(equation_string) {
   
@@ -67,9 +82,22 @@ create_structural_function <- function(equation_string) {
 # (for exogenous variables this is just a constant function returning the 
 # exogenous probability; for endogenous variables this is the structural 
 # equation)
+
+#' Create structural functions for a causal model
+#'
+#' Converts a named causal model into a named list of R functions.
+#' Each variable in the causal model is converted using
+#' [create_structural_function()].
+#'
+#' @param vars A named list specifying the causal model.
+#'   Elements representing structural equations should be strings, while
+#'   exogenous variables are specified by their probabilities.
+#'
+#' @return A named list of functions corresponding to the variables in
+#'   the causal model.
 make_function_list <- function(vars){
   functionList <- list() # initialize list
-  for (var in names(vars)){ # cycle through variable
+  for (var in names(vars)){ # cycle through variables
     # create function
     functionList[[var]] <- create_structural_function(vars[var]) 
   }

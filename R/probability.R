@@ -2,6 +2,20 @@
 
 # verification function: check whether an endogenous variable has a value that 
 # is consistent with the value of its parents 
+
+#' Verify consistency of an endogenous variable
+#'
+#' Checks whether the value of an endogenous variable is consistent with
+#' the values of its parent variables under its structural function.
+#'
+#' @param outcome Numeric value of the endogenous variable.
+#' @param args Values of the parent variables, supplied as a list or
+#'   list-like object suitable for passing to `fun`.
+#' @param fun A structural function defining the value of the endogenous
+#'   variable as a function of its parents.
+#'
+#' @return A logical value indicating whether the structural function
+#'   produces the specified value of `outcome`.
 verif <- function(outcome, args, fun){
   return(do.call(fun, as.list(args))==outcome)
 }
@@ -9,6 +23,28 @@ verif <- function(outcome, args, fun){
 
 # function to create the joint probability distribution induced by the causal 
 # model and actual world
+
+#' Compute the counterfactual joint probability distribution induced by a
+#' causal model and the state of the actual world.
+#'
+#' We compute the distribution using the factorization of the causal model, by
+#' computing the marginal probability of exogenous variables and the 
+#' conditional probabilities of the endogenous variables. Then we take the 
+#' product of these probabilities to compute the joint distribution.
+
+#'
+#' @param structural_functions A named list of functions defining the
+#'   structural equations and probability distributions of the variables
+#'   in the causal model.
+#' @param actual_world A named list giving the values of variables in
+#'   the actual world.
+#' @param s Numeric parameter controlling the adjustment of exogenous
+#'   variable probabilities toward their actual-world values. Defaults
+#'   to `0`.
+#'
+#' @return A data frame containing one row for each possible world,
+#'   probability columns for each variable, and a column `p` giving the
+#'   probability of each world.
 compute_probabilities <- function(structural_functions, actual_world, s=0){
   
   # initialize the dataframe representing the joint distribution

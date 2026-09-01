@@ -12,16 +12,26 @@
 
 ### Counterfactual intervention computation ------------------------------------
 
-# we first define a helper function that computes the value of Y conditioned
-# on a counterfactual intervention on X, starting from a given world
-# we will use that function for computing both necessity and sufficiency
+#' This helper function computes the value of Y conditioned
+#' on a counterfactual intervention on X, starting from a given world.
+#' We will use that function for computing both necessity and sufficiency.
 
-# this function works recursively. suppose Y depends directly on X: then the
-# function can directly compute the effect of the intervention.
-# but Y can also indirectly depend on X, for example via a chain X -> Z -> Y
-# to accommodate this kind of cases, we recursively call the 
-# compute_counterfactual_value() function on intermediate values,
-# until we reach X.
+#' This function works recursively. Suppose Y depends directly on X: then the
+#' function can directly compute the effect of the intervention.
+#' But Y can also indirectly depend on X, for example via a chain X -> Z -> Y.
+#' To accommodate this kind of cases, we recursively call the 
+#' compute_counterfactual_value() function on intermediate values,
+#' until we reach X.
+
+#' @param intervention_var Character string: the variable we intervene upon
+#' @param intervention_value Numeric: the post-intervention value of the 
+#' variable we intervene upon
+#' @param target_var Character string: the target variable. We want to compute 
+#' the value it has after we've intervened on the intervention variable
+#' @param causal_model A named list specifying the causal model
+#' @param aw_values A named list with the values of the variables in the actual 
+#' world
+#' @return A numeric specifying the counterfactual value of the target variable.
 
 compute_counterfactual_value <- function(intervention_var, intervention_value,
                                          target_var, causal_model, aw_values) {
@@ -65,8 +75,18 @@ compute_counterfactual_value <- function(intervention_var, intervention_value,
 ### Necessity ------------------------------------------------------------------
 
 
-# function to compute necessity: does intervening on X in the actual world
-# flip the value of Y?
+#' Function to compute necessity: does intervening on X in the actual world
+#' flip the value of Y?
+#' 
+#' @param x_var Character string giving the candidate cause variable.
+#' @param y_var Character string giving the outcome variable.
+#' @param causal_model A named list of structural functions defining
+#'   the causal model.
+#' @param actual_world A named list giving the values of variables in
+#'   the actual world.
+#'
+#' @return A logical value indicating whether the candidate cause is
+#'   necessary for the outcome in the actual world.
 compute_necessity <- function(x_var, y_var, causal_model, actual_world) {
   # get the actual-world values of X and Y
   x_actual <- actual_world[[x_var]]
@@ -106,7 +126,22 @@ compute_necessity <- function(x_var, y_var, causal_model, actual_world) {
 # p(E=1|V=v, do(C=1)), which follows from the fact that E and C are 'screened 
 # off' by V=v and by the intervention.)
 
-compute_sufficiency <- function(var, outcome, actual_world, causal_model, d=df){
+
+#' Computes the sufficiency of a candidate cause for an outcome 
+
+#' @param var Character string giving the candidate cause variable.
+#' @param outcome Character string giving the outcome variable.
+#' @param actual_world A named list giving the values of variables in
+#'   the actual world.
+#' @param causal_model A named list of structural functions defining
+#'   the causal model.
+#' @param d A data frame containing the joint probability distribution
+#'   over possible worlds.
+#'
+#' @return A numeric value representing the sufficiency of the candidate
+#'   cause for the outcome.
+
+compute_sufficiency <- function(var, outcome, actual_world, causal_model, d){
   
   ### step 1: compute p(V=v|c=0, e=0)
   
@@ -175,7 +210,24 @@ compute_sufficiency <- function(var, outcome, actual_world, causal_model, d=df){
 
 ### full model: integrate necessity and sufficiency by weighing by p(c)---------
 
-ns <- function(var, outcome,  actual_world, d=df, causal_model=cm){
+
+# if variables have different polarity, e.g. c=0 and e=1, then we multiply this
+# correlation by -1.
+
+#' Function computing a judgment for the NS model
+#' @param var Character string giving the candidate cause variable.
+#' @param outcome Character string giving the outcome variable.
+#' @param actual_world A named list specifying the values of variables
+#'   in the actual world. 
+#' @param d The dataframe containing the counterfactual-based joint 
+#' distribution.
+#' @param causal_model A named list specifying the causal model.
+#'
+#' @return A numeric causal judgment.
+#'
+#' @export
+#'
+ns <- function(var, outcome,  actual_world, d, causal_model=cm){
   # compute p(c) by filtering the df for C=aw(c), and summing across values of p
   pvar <- d %>% filter(!!sym(var)==actual_world[[var]]) %>% 
     summarize(s.p=sum(p)) %>% pull(s.p)
