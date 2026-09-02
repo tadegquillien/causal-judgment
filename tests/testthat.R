@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(causalResp)
+library(causaljudgment)
 
-test_check("causalResp")
+test_check("causaljudgment")

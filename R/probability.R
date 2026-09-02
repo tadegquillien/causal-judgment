@@ -38,9 +38,11 @@ verif <- function(outcome, args, fun){
 #'   in the causal model.
 #' @param actual_world A named list giving the values of variables in
 #'   the actual world.
-#' @param s Numeric parameter controlling the adjustment of exogenous
-#'   variable probabilities toward their actual-world values. Defaults
-#'   to `0`.
+#' @param s Numeric or Named List parameter(s) controlling the adjustment of 
+#' exogenous variable probabilities toward their actual-world values. Defaults
+#'   to `0`. Usually this is a scalar that applies to all variables in the 
+#'   model, but one can also use a named list that specifies a separate
+#'   parameter for each variable.
 #'
 #' @return A data frame containing one row for each possible world,
 #'   probability columns for each variable, and a column `p` giving the
@@ -77,7 +79,13 @@ compute_probabilities <- function(structural_functions, actual_world, s=0){
     if(length(args)==0){ # if variable is exogenous
       for (i in 1:nrow(d)){
         prob <- fun() # extract p(var=1)
-        prob <- s*actual_world[[var]]+(1-s)*prob # apply s parameter
+        # apply s parameter
+        if(length(s)==1){ # if s is a scalar
+          prob <- s*actual_world[[var]]+(1-s)*prob 
+        }
+        else{ # if s a list
+          prob <- s[[var]]*actual_world[[var]]+(1-s[[var]])*prob 
+        }
         d[i,ncol(d)] <- ifelse(d[i,var], prob, 1-prob) # enter exogenous prob
       }
     }

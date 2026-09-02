@@ -224,6 +224,7 @@ compute_sufficiency <- function(var, outcome, actual_world, causal_model, d){
 #' @param causal_model A named list specifying the causal model.
 #'
 #' @return A numeric causal judgment.
+#' 
 #'
 #' @export
 #'

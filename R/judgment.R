@@ -10,9 +10,31 @@
 #'   in the actual world. The names must match those in `causal_model`.
 #' @param model Character string specifying the causal judgment model.
 #'   Currently, `"ces"` and `"ns"` are supported.
-#' @param s A numeric: the stability parameter.
+#' @param s Numeric or Named List parameter(s) controlling the adjustment of 
+#' exogenous variable probabilities toward their actual-world values. Defaults
+#'   to `0`. Usually this is a scalar that applies to all variables in the 
+#'   model, but one can also use a named list that specifies a separate
+#'   parameter for each variable.
 #'
 #' @return A numeric causal judgment.
+#' 
+#' @examples
+#' # Define a causal model
+#' causal_model <- list(e = "a & b", a = .1, b = .9)
+#'
+#' # Define the actual world
+#' actual_world <- list(e = 1, a = 1, b = 1)
+#'
+#' # Compute the CES judgment for A causing E
+#' compute_judgment(
+#'   var = "a",
+#'   outcome = "e",
+#'   causal_model = causal_model,
+#'   actual_world = actual_world,
+#'   model = "ces",
+#'   s = .7
+#' )
+
 #'
 #' @export
 #' 
@@ -76,5 +98,6 @@ compute_judgment <- function(var, outcome, causal_model, actual_world,
     score <- ns(var, outcome, actual_world, df, structural_functions)
   }
   return(score)
-  
+
 }
+

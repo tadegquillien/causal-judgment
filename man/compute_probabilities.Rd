@@ -15,9 +15,11 @@ in the causal model.}
 \item{actual_world}{A named list giving the values of variables in
 the actual world.}
 
-\item{s}{Numeric parameter controlling the adjustment of exogenous
-variable probabilities toward their actual-world values. Defaults
-to \code{0}.}
+\item{s}{Numeric or Named List parameter(s) controlling the adjustment of
+exogenous variable probabilities toward their actual-world values. Defaults
+to \code{0}. Usually this is a scalar that applies to all variables in the
+model, but one can also use a named list that specifies a separate
+parameter for each variable.}
 }
 \value{
 A data frame containing one row for each possible world,

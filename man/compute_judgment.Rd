@@ -20,7 +20,11 @@ in the actual world. The names must match those in \code{causal_model}.}
 \item{model}{Character string specifying the causal judgment model.
 Currently, \code{"ces"} and \code{"ns"} are supported.}
 
-\item{s}{A numeric: the stability parameter.}
+\item{s}{Numeric or Named List parameter(s) controlling the adjustment of
+exogenous variable probabilities toward their actual-world values. Defaults
+to \code{0}. Usually this is a scalar that applies to all variables in the
+model, but one can also use a named list that specifies a separate
+parameter for each variable.}
 }
 \value{
 A numeric causal judgment.
@@ -28,4 +32,22 @@ A numeric causal judgment.
 \description{
 The general causal judgment function. It is essentially a wrapper
 over the ces() and ns() functions.
+}
+\examples{
+# Define a causal model
+causal_model <- list(e = "a & b", a = .1, b = .9)
+
+# Define the actual world
+actual_world <- list(e = 1, a = 1, b = 1)
+
+# Compute the CES judgment for A causing E
+compute_judgment(
+  var = "a",
+  outcome = "e",
+  causal_model = causal_model,
+  actual_world = actual_world,
+  model = "ces",
+  s = .7
+)
+
 }

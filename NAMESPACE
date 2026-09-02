@@ -3,3 +3,4 @@
 export(ces)
 export(compute_judgment)
 export(ns)
+import(dplyr)

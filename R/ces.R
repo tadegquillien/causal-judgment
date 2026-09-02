@@ -22,6 +22,7 @@
 #'
 #' @return A numeric causal judgment.
 #'
+#'
 #' @export
 #' 
 ces <- function(var1, var2, aw_values, d, p_col = "p") {
