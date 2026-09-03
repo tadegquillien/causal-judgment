@@ -1,0 +1,93 @@
+# Background
+
+### When and why use this package?
+
+People make intuitive judgments about the relative causal responsibility
+of events that contributed to an outcome. Recently, cognitive scientists
+have developed computational models of these causal judgments. This
+package allows one to compute the predictions of two of these models. It
+is designed for scientists who want to test these models’ predictions,
+or for anyone curious about them.
+
+These models have a particular scope: they are focused on *causal
+selection*. Causal selection is the process by which people judge the
+relative contribution of different causes of an outcome. Causal
+selection occurs for example when you think that a lightning bolt is the
+main cause of the forest fire, and regard the presence of oxygen in the
+air as a \`background factor’, even though both were necessary for the
+fire to occur. Or it occurs when you think that the presidential
+candidate won the election because he won in the swing state rather than
+because he won in his party’s stronghold (even if winning both states
+were necessary for the victory).
+
+In contrast, these models are not trying to give an account of causal
+learning (how people infer what happened in a particular case, or how
+they learn that some things cause other things in general), or an
+account of how people decide whether something is a cause or not a cause
+of an outcome. For more on these important distinctions see p.2 in [this
+paper](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf).
+
+### Technical description of the model implementations
+
+The models supported by the package are the Necessity-Sufficiency (NS)
+model ([Icard et al., 2017](https://philpapers.org/archive/ICANAA.pdf))
+and the Counterfactual Effect Size (CES) model ([Quillien,
+2020](https://quillienlab.github.io/Quillien%202020%20actual%20causation.pdf);
+[Quillien & Lucas,
+2023](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf)).
+See the linked papers for a formal description of these models. Here I
+discuss particular implementation details.
+
+#### Necessity-Sufficiency model
+
+Icard et al. (2017) posit that causal judgments are a weighted sum of
+two measures called Necessity and Sufficiency:
+
+$`\kappa_{C\rightarrow E} = P(C)\text{Sufficiency}(C\rightarrow E) + (1-P(C))\text{Necessity}(C\rightarrow E)`$,
+
+where $`P(\cdot)`$ is the probability distribution over possible
+counterfactual worlds. The authors do not commit to a particular way of
+operationalizing Sufficiency and Necessity, but we picked
+operationalizations that i) were based on suggestions in the original
+paper ii) have done a good job of accounting for causal judgments
+relative to alternative possible operationalizations.
+
+We compute Sufficiency as:
+
+$`\text{Sufficiency}(C=c\rightarrow E=e) = P(E_{C=c}|C=\neg c, E=\neg e)`$.
+
+In words, we condition on the counterfactual worlds where $`C`$ and
+$`E`$ do not take their actual-world values, and compute the proportion
+of these counterfactual worlds where a counterfactual intervention
+setting $`C`$ to its actual-world value ends up setting $`E`$ to its
+actual-world value.
+
+We define $`\text{Necessity}(C=c\rightarrow E=e)`$ as 1 if, in the
+actual world, an intervention setting $`C`$ to $`\neg c`$ would prevent
+$`E=e`$ from happening. Necessity is 0 otherwise.
+
+#### Counterfactual Effect Size model
+
+Our implementation of the CES model is identical to the version
+described in Quillien & Lucas (2023), in settings where there is no
+confounding between $`C`$ and $`E`$—that is, settings where
+$`P(E|C)=P(E|\text{Do}(C))`$. Those settings constitute the vast
+majority of published experiments on causal judgment.
+
+In settings where there is confounding, the current implementation
+differs slightly from the model defined in Quillien & Lucas (2023,
+supplementary information). In the current implementation, the
+probability distribution over counterfactual possible worlds is
+generated in a way that guarantees $`C`$ is independent from its
+non-descendants in the causal model (see Step 4 in Readme.md). This
+ensures that the correlation between $`C`$ and $`E`$ across
+counterfactual worlds is not confounded.
+
+This procedure differs from the procedure proposed in the CES papers,
+which requires performing counterfactual interventions in worlds that
+are already counterfactual (I thank Shubhamkar Ayare for pointing this
+out to me). Because the new procedure is simpler (and arguably truer to
+the original spirit of the CES model), and because there are almost no
+data on people’s causal judgments in confounded cases that would help
+arbitrate between the old and the new procedure, I choose to implement
+the new procedure here.
