@@ -84,7 +84,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="reference/compute_judgment.html">compute_judgment</a></span><span class="op">(</span><span class="st">'a'</span>, <span class="st">'e'</span>, <span class="va">causalmodel</span>, <span class="va">actual_world</span>, <span class="st">'ces'</span>, <span class="fl">.7</span><span class="op">)</span></span></code></pre></div>
 <p>The first two arguments say that we want to see to what extent A caused E. The next two arguments specify the causal model and the actual-world value of the variables (defined above). The fifth argument specifies the computational model we want to use (here, CES). The last argument specifies the value of the stability parameter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math> (how much counterfactual simulation is ‘anchored’ to the actual world). This argument is optional, by default <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s=0</annotation></semantics></math>.</p>
 <p>Running this command will return a ‘causal score’ from -1 to 1 (for CES) or from 0 to 1 (for NS). Higher values indicate higher actual causal strength. For the CES model, a negative value like -.8 indicates a very weak causal score, not something like ‘negative’ causation. And -.8 is weaker than for example -.4.</p>
-<p>More examples are provided in the vignette.</p>
+<p>More examples are provided in this <a href="https://tadegquillien.github.io/causaljudgment/articles/examples.html">vignette</a>.</p>
 <p>References:</p>
 <p>Icard, Kominsky &amp; Knobe (2017). Normality and actual causal strength. <i>Cognition</i>.</p>
 <p>Quillien &amp; Lucas (2023). Counterfactuals and the logic of causal selection. <i>Psychological Review</i>.</p>
@@ -123,7 +123,7 @@
 <div class="section level3">
 <h3 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
 </h3>
-<p>This package would not exist without enthusiastic encouragement and advice from Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point discussed here (TODO: insert link).</p>
+<p>This package would not exist without enthusiastic encouragement and advice from Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point about CES implementation (see <a href="https://tadegquillien.github.io/causaljudgment/articles/background.html#counterfactual-effect-size-model">here</a>).</p>
 </div>
 <div class="section level3">
 <h3 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>

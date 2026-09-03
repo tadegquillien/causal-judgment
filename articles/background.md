@@ -79,8 +79,9 @@ differs slightly from the model defined in Quillien & Lucas (2023,
 supplementary information). In the current implementation, the
 probability distribution over counterfactual possible worlds is
 generated in a way that guarantees $`C`$ is independent from its
-non-descendants in the causal model (see Step 4 in Readme.md). This
-ensures that the correlation between $`C`$ and $`E`$ across
+non-descendants in the causal model (see Step 4 in [the description
+here](https://tadegquillien.github.io/causaljudgment/index.html#how-the-package-works)).
+This ensures that the correlation between $`C`$ and $`E`$ across
 counterfactual worlds is not confounded.
 
 This procedure differs from the procedure proposed in the CES papers,

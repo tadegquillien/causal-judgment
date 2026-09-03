@@ -72,7 +72,8 @@ strength. For the CES model, a negative value like -.8 indicates a very
 weak causal score, not something like ‘negative’ causation. And -.8 is
 weaker than for example -.4.
 
-More examples are provided in the vignette.
+More examples are provided in this
+[vignette](https://tadegquillien.github.io/causaljudgment/articles/examples.html).
 
 References:
 
@@ -182,7 +183,8 @@ reasoning. *Psychological Review*.
 
 This package would not exist without enthusiastic encouragement and
 advice from Joshua Knobe. I also thank Shubhamkar Ayare for raising an
-interesting technical point discussed here (TODO: insert link).
+interesting technical point about CES implementation (see
+[here](https://tadegquillien.github.io/causaljudgment/articles/background.html#counterfactual-effect-size-model)).
 
 ### Citation
 
