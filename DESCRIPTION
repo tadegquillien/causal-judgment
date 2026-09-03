@@ -17,3 +17,4 @@ Config/roxygen2/version: 8.1.0
 Imports: 
     dplyr
 VignetteBuilder: knitr
+URL: https://tadegquillien.github.io/causaljudgment/

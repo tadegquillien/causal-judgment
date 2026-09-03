@@ -1,6 +1,6 @@
 # causaljudgment
 
-The causaljudgment package allows one to compute the predictions of computational models of causal judgment. Currently two models are implemented: the Counterfactual Effect Size (CES) model (Quillien & Lucas, 2023) and the Necessity-Sufficiency (NS) model (Icard, Kominsky & Knobe, 2017).
+The <code>causaljudgment</code> package allows one to compute the predictions of computational models of causal judgment. Currently two models are implemented: the Counterfactual Effect Size (CES) model (Quillien & Lucas, 2023) and the Necessity-Sufficiency (NS) model (Icard, Kominsky & Knobe, 2017).
 
 In this file, we give examples of how to compute causal judgments, describe current limitations, and then (for interested readers) give a high-level explanation of how these scripts work.
 
@@ -116,7 +116,7 @@ Lucas & Kemp (2015). An improved probabilistic account of counterfactual reasoni
 
 ### Acknowledgments
 
-This package would not have been created without the encouragement and advice of Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point discussed here (TODO: insert link).
+This package would not exist without enthusiastic encouragement and advice from Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point discussed here (TODO: insert link).
 
 ### Citation
 To cite the package in publications please use:
