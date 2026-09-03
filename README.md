@@ -50,7 +50,7 @@ The first two arguments say that we want to see to what extent A caused E. The n
 
 Running this command will return a 'causal score' from -1 to 1 (for CES) or from 0 to 1 (for NS). Higher values indicate higher actual causal strength. For the CES model, a negative value like -.8 indicates a very weak causal score, not something like 'negative' causation. And -.8 is weaker than for example -.4.
 
-More examples are provided in the vignette.
+More examples are provided in this [vignette](https://tadegquillien.github.io/causaljudgment/articles/examples.html).
 
 References:
 
@@ -116,7 +116,7 @@ Lucas & Kemp (2015). An improved probabilistic account of counterfactual reasoni
 
 ### Acknowledgments
 
-This package would not exist without enthusiastic encouragement and advice from Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point discussed here (TODO: insert link).
+This package would not exist without enthusiastic encouragement and advice from Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point about CES implementation (see [here](https://tadegquillien.github.io/causaljudgment/articles/background.html#counterfactual-effect-size-model)).
 
 ### Citation
 To cite the package in publications please use:
