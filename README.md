@@ -10,7 +10,8 @@ In this file, we give examples of how to compute causal judgments, describe curr
 First, install and load the package:
 
 ```r
-install.packages('causaljudgment')
+install.packages("remotes")
+remotes::install_github("tadegquillien/causaljudgment")
 library(causaljudgment)
 
 ```
@@ -112,3 +113,13 @@ After we have obtained the probability distribution over counterfactual worlds, 
 References:
 
 Lucas & Kemp (2015). An improved probabilistic account of counterfactual reasoning. <i>Psychological Review</i>.
+
+### Acknowledgments
+
+This package would not have been created without the encouragement and advice of Joshua Knobe. I also thank Shubhamkar Ayare for raising an interesting technical point discussed here (TODO: insert link).
+
+### Citation
+To cite the package in publications please use:
+
+  Quillien T (2026). _causaljudgment: computational models
+  of causal judgment_. R package.
