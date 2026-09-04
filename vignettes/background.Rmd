@@ -40,6 +40,8 @@ In contrast, these models are not trying to give an account of causal learning (
 
 The models supported by the package are the Necessity-Sufficiency (NS) model ([Icard et al., 2017](https://philpapers.org/archive/ICANAA.pdf)) and the Counterfactual Effect Size (CES) model ([Quillien, 2020](https://quillienlab.github.io/Quillien%202020%20actual%20causation.pdf); [Quillien & Lucas, 2023](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf)). See the linked papers for a formal description of these models. Here I discuss particular implementation details.
 
+Both models first generate a probability distribution over counterfactual worlds. The way this distribution is generated is described [here](https://tadegquillien.github.io/causaljudgment/index.html#how-the-package-works). Below I discuss the computations that are then applied on the basis of this distribution.
+
 #### Necessity-Sufficiency model
 
 Icard et al. (2017) posit that causal judgments are a weighted sum of two measures called Necessity and Sufficiency:
@@ -57,6 +59,8 @@ In words, we condition on the counterfactual worlds where $C$ and $E$ do not tak
 We define $\text{Necessity}(C=c\rightarrow E=e)$ as 1 if, in the actual world, an intervention setting $C$ to $\neg c$ would prevent $E=e$ from happening. Necessity is 0 otherwise.
 
 #### Counterfactual Effect Size model
+
+The CES model computes the Pearson correlation between $C=c$ and $E=e$ in the distribution over counterfactual worlds. 
 
 Our implementation of the CES model is identical to the version described in Quillien & Lucas (2023), in settings where there is no confounding between $C$ and $E$---that is, settings where $P(E|C)=P(E|\text{Do}(C))$. Those settings constitute the vast majority of published experiments on causal judgment.
 

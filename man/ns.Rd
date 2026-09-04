@@ -2,7 +2,7 @@
 % Please edit documentation in R/ns.R
 \name{ns}
 \alias{ns}
-\title{Function computing a judgment for the NS model}
+\title{ns(): compute a judgment with the NS model.}
 \usage{
 ns(var, outcome, actual_world, d, causal_model = cm)
 }
@@ -14,8 +14,8 @@ ns(var, outcome, actual_world, d, causal_model = cm)
 \item{actual_world}{A named list specifying the values of variables
 in the actual world.}
 
-\item{d}{The dataframe containing the counterfactual-based joint
-distribution.}
+\item{d}{The dataframe containing the probability distribution over
+counterfactual worlds.}
 
 \item{causal_model}{A named list specifying the causal model.}
 }
@@ -23,5 +23,6 @@ distribution.}
 A numeric causal judgment.
 }
 \description{
-Function computing a judgment for the NS model
+This function computes a NS judgment on the basis of a probability
+distribution over counterfactual worlds
 }

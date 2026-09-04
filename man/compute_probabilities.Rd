@@ -2,8 +2,9 @@
 % Please edit documentation in R/probability.R
 \name{compute_probabilities}
 \alias{compute_probabilities}
-\title{Compute the counterfactual joint probability distribution induced by a
-causal model and the state of the actual world.}
+\title{compute_probability(): compute the probability distribution over
+counterfactual worlds induced by the causal model and the state of the actual
+world.}
 \usage{
 compute_probabilities(structural_functions, actual_world, s = 0)
 }

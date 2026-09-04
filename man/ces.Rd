@@ -2,7 +2,7 @@
 % Please edit documentation in R/ces.R
 \name{ces}
 \alias{ces}
-\title{Computes a judgment with the CES model}
+\title{ces(): compute a judgment with the CES model.}
 \usage{
 ces(var1, var2, aw_values, d, p_col = "p")
 }
@@ -14,7 +14,8 @@ ces(var1, var2, aw_values, d, p_col = "p")
 \item{aw_values}{A named list specifying the values of variables
 in the actual world.}
 
-\item{d}{The dataframe containing the counterfactual-based joint distribution}
+\item{d}{The dataframe containing the probability distribution over
+counterfactual worlds.}
 
 \item{p_col}{Indicates which column contains the joint probability.}
 }
@@ -22,5 +23,6 @@ in the actual world.}
 A numeric causal judgment.
 }
 \description{
-Computes a judgment with the CES model
+This function computes a CES judgment on the basis of a probability
+distribution over counterfactual worlds.
 }

@@ -2,15 +2,8 @@
 % Please edit documentation in R/ns.R
 \name{compute_counterfactual_value}
 \alias{compute_counterfactual_value}
-\title{This helper function computes the value of Y conditioned
-on a counterfactual intervention on X, starting from a given world.
-We will use that function for computing both necessity and sufficiency.
-This function works recursively. Suppose Y depends directly on X: then the
-function can directly compute the effect of the intervention.
-But Y can also indirectly depend on X, for example via a chain X -> Z -> Y.
-To accommodate this kind of cases, we recursively call the
-compute_counterfactual_value() function on intermediate values,
-until we reach X.}
+\title{compute_counterfactual_value(): compute the value of Y conditioned
+on a counterfactual intervention on X, starting from a given world.}
 \usage{
 compute_counterfactual_value(
   intervention_var,
@@ -38,13 +31,7 @@ world}
 A numeric specifying the counterfactual value of the target variable.
 }
 \description{
-This helper function computes the value of Y conditioned
-on a counterfactual intervention on X, starting from a given world.
-We will use that function for computing both necessity and sufficiency.
-This function works recursively. Suppose Y depends directly on X: then the
-function can directly compute the effect of the intervention.
-But Y can also indirectly depend on X, for example via a chain X -> Z -> Y.
-To accommodate this kind of cases, we recursively call the
-compute_counterfactual_value() function on intermediate values,
-until we reach X.
+This function computes the value of Y conditioned
+on a counterfactual intervention on X, starting from a given world. The
+function is used for computing both necessity and sufficiency.
 }

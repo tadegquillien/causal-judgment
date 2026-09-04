@@ -2,7 +2,7 @@
 
 The <code>causaljudgment</code> package allows one to compute the predictions of computational models of causal judgment. Currently two models are implemented: the Counterfactual Effect Size (CES) model (Quillien & Lucas, 2023) and the Necessity-Sufficiency (NS) model (Icard, Kominsky & Knobe, 2017).
 
-In this file, we give examples of how to compute causal judgments, describe current limitations, and then (for interested readers) give a high-level explanation of how these scripts work.
+In this file, we give examples of how to compute causal judgments, describe current limitations, and then (for interested readers) give a high-level explanation of how these scripts work. More background about when and why to use this package is given [here](https://tadegquillien.github.io/causaljudgment/articles/background.html). For the original scientific papers see [here (CES)](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf) and [here (NS)](https://philpapers.org/archive/ICANAA.pdf).
 
 
 ### Getting started
@@ -54,9 +54,9 @@ More examples are provided in this [vignette](https://tadegquillien.github.io/ca
 
 References:
 
-Icard, Kominsky & Knobe (2017). Normality and actual causal strength. <i>Cognition</i>.
+Icard, Kominsky & Knobe (2017). [Normality and actual causal strength](https://philpapers.org/archive/ICANAA.pdf). <i>Cognition</i>.
 
-Quillien & Lucas (2023). Counterfactuals and the logic of causal selection. <i>Psychological Review</i>.
+Quillien & Lucas (2023). [Counterfactuals and the logic of causal selection](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf). <i>Psychological Review</i>.
 
 ### Limitations
 
@@ -108,7 +108,7 @@ To compute this probability distribution analytically, we do the following. We l
 
 4) If $C$ is an endogenous variable, we must perform an additional step to ensure that the distribution reflects the fact that $C$'s value is set by interventions. We first compute the marginal probability $p(C=c)$ in the distribution we just computed. Then we replace $p(C=c|\text{pa}(C))$ with $p(C=c)$ in every world. Doing this ensures that the probability of $C=c$ is now independent from the value of $C$'s parents, as required by the fact that $C$ is set by interventions. After doing this, we now re-compute the probability of each world.
 
-After we have obtained the probability distribution over counterfactual worlds, it is easy to analytically compute the correlation between $C=c$ and $E=e$ in this distribution (for the CES model). We can also analytically compute Necessity and Sufficiency (for the NS model).
+After we have obtained the probability distribution over counterfactual worlds, it is easy to analytically compute the correlation between $C=c$ and $E=e$ in this distribution (for the CES model). We can also analytically compute Necessity and Sufficiency (for the NS model). See [here](https://tadegquillien.github.io/causaljudgment/articles/background.html#technical-description-of-the-model-implementations) for more details on these computations.
 
 References:
 

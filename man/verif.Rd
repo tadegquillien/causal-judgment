@@ -2,7 +2,7 @@
 % Please edit documentation in R/probability.R
 \name{verif}
 \alias{verif}
-\title{Verify consistency of an endogenous variable}
+\title{verif(): verify consistency of an endogenous variable}
 \usage{
 verif(outcome, args, fun)
 }

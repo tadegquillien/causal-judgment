@@ -2,8 +2,8 @@
 % Please edit documentation in R/ns.R
 \name{compute_necessity}
 \alias{compute_necessity}
-\title{Function to compute necessity: does intervening on X in the actual world
-flip the value of Y?}
+\title{compute_necessity(): compute whether X was necessary for Y in the actual
+world.}
 \usage{
 compute_necessity(x_var, y_var, causal_model, actual_world)
 }
@@ -23,6 +23,6 @@ A logical value indicating whether the candidate cause is
 necessary for the outcome in the actual world.
 }
 \description{
-Function to compute necessity: does intervening on X in the actual world
-flip the value of Y?
+We check whether intervening on X in the actual world
+flips the value of Y.
 }

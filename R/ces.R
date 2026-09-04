@@ -11,13 +11,17 @@
 # if variables have different polarity, e.g. c=0 and e=1, then we multiply this
 # correlation by -1.
 
-#' Computes a judgment with the CES model
+#' ces(): compute a judgment with the CES model.
+#'
+#' This function computes a CES judgment on the basis of a probability 
+#' distribution over counterfactual worlds.
 
 #' @param var1 Character string giving the candidate cause variable.
 #' @param var2 Character string giving the outcome variable.
 #' @param aw_values A named list specifying the values of variables
 #'   in the actual world. 
-#' @param d The dataframe containing the counterfactual-based joint distribution
+#' @param d The dataframe containing the probability distribution over 
+#' counterfactual worlds.
 #' @param p_col Indicates which column contains the joint probability.
 #'
 #' @return A numeric causal judgment.

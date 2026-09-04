@@ -3,7 +3,7 @@
 # verification function: check whether an endogenous variable has a value that 
 # is consistent with the value of its parents 
 
-#' Verify consistency of an endogenous variable
+#' verif(): verify consistency of an endogenous variable
 #'
 #' Checks whether the value of an endogenous variable is consistent with
 #' the values of its parent variables under its structural function.
@@ -24,8 +24,9 @@ verif <- function(outcome, args, fun){
 # function to create the joint probability distribution induced by the causal 
 # model and actual world
 
-#' Compute the counterfactual joint probability distribution induced by a
-#' causal model and the state of the actual world.
+#' compute_probability(): compute the probability distribution over 
+#' counterfactual worlds induced by the causal model and the state of the actual 
+#' world.
 #'
 #' We compute the distribution using the factorization of the causal model, by
 #' computing the marginal probability of exogenous variables and the 

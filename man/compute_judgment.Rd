@@ -2,8 +2,7 @@
 % Please edit documentation in R/judgment.R
 \name{compute_judgment}
 \alias{compute_judgment}
-\title{The general causal judgment function. It is essentially a wrapper
-over the ces() and ns() functions.}
+\title{compute_judgment(): compute a causal judgment.}
 \usage{
 compute_judgment(var, outcome, causal_model, actual_world, model, s = 0)
 }

@@ -2,7 +2,8 @@
 % Please edit documentation in R/ns.R
 \name{compute_sufficiency}
 \alias{compute_sufficiency}
-\title{Computes the sufficiency of a candidate cause for an outcome}
+\title{compute_sufficiency(): computes the sufficiency of a candidate cause
+for an outcome.}
 \usage{
 compute_sufficiency(var, outcome, actual_world, causal_model, d)
 }
@@ -25,5 +26,6 @@ A numeric value representing the sufficiency of the candidate
 cause for the outcome.
 }
 \description{
-Computes the sufficiency of a candidate cause for an outcome
+This function computes the sufficiency of a candidate cause
+for an outcome.
 }
