@@ -8,7 +8,12 @@ Knobe, 2017).
 
 In this file, we give examples of how to compute causal judgments,
 describe current limitations, and then (for interested readers) give a
-high-level explanation of how these scripts work.
+high-level explanation of how these scripts work. More background about
+when and why to use this package is given
+[here](https://tadegquillien.github.io/causaljudgment/articles/background.html).
+For the original scientific papers see [here
+(CES)](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf)
+and [here (NS)](https://philpapers.org/archive/ICANAA.pdf).
 
 ### Getting started
 
@@ -77,11 +82,12 @@ More examples are provided in this
 
 References:
 
-Icard, Kominsky & Knobe (2017). Normality and actual causal strength.
-*Cognition*.
+Icard, Kominsky & Knobe (2017). [Normality and actual causal
+strength](https://philpapers.org/archive/ICANAA.pdf). *Cognition*.
 
-Quillien & Lucas (2023). Counterfactuals and the logic of causal
-selection. *Psychological Review*.
+Quillien & Lucas (2023). [Counterfactuals and the logic of causal
+selection](https://quillienlab.github.io/Quillien%20&%20Lucas%202023.pdf).
+*Psychological Review*.
 
 ### Limitations
 
@@ -173,6 +179,9 @@ After we have obtained the probability distribution over counterfactual
 worlds, it is easy to analytically compute the correlation between
 $`C=c`$ and $`E=e`$ in this distribution (for the CES model). We can
 also analytically compute Necessity and Sufficiency (for the NS model).
+See
+[here](https://tadegquillien.github.io/causaljudgment/articles/background.html#technical-description-of-the-model-implementations)
+for more details on these computations.
 
 References:
 

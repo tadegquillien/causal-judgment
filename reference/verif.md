@@ -1,4 +1,4 @@
-# Verify consistency of an endogenous variable
+# verif(): verify consistency of an endogenous variable
 
 Checks whether the value of an endogenous variable is consistent with
 the values of its parent variables under its structural function.

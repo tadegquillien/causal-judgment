@@ -1,6 +1,7 @@
-# Computes a judgment with the CES model
+# ces(): compute a judgment with the CES model.
 
-Computes a judgment with the CES model
+This function computes a CES judgment on the basis of a probability
+distribution over counterfactual worlds.
 
 ## Usage
 
@@ -24,7 +25,8 @@ ces(var1, var2, aw_values, d, p_col = "p")
 
 - d:
 
-  The dataframe containing the counterfactual-based joint distribution
+  The dataframe containing the probability distribution over
+  counterfactual worlds.
 
 - p_col:
 

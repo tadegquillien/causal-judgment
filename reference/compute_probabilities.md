@@ -1,4 +1,4 @@
-# Compute the counterfactual joint probability distribution induced by a causal model and the state of the actual world.
+# compute_probability(): compute the probability distribution over counterfactual worlds induced by the causal model and the state of the actual world.
 
 We compute the distribution using the factorization of the causal model,
 by computing the marginal probability of exogenous variables and the

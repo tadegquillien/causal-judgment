@@ -1,7 +1,7 @@
-# Function to compute necessity: does intervening on X in the actual world flip the value of Y?
+# compute_necessity(): compute whether X was necessary for Y in the actual world.
 
-Function to compute necessity: does intervening on X in the actual world
-flip the value of Y?
+We check whether intervening on X in the actual world flips the value of
+Y.
 
 ## Usage
 

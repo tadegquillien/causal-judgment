@@ -1,6 +1,7 @@
-# Function computing a judgment for the NS model
+# ns(): compute a judgment with the NS model.
 
-Function computing a judgment for the NS model
+This function computes a NS judgment on the basis of a probability
+distribution over counterfactual worlds
 
 ## Usage
 
@@ -24,7 +25,8 @@ ns(var, outcome, actual_world, d, causal_model = cm)
 
 - d:
 
-  The dataframe containing the counterfactual-based joint distribution.
+  The dataframe containing the probability distribution over
+  counterfactual worlds.
 
 - causal_model:
 

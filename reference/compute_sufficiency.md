@@ -1,6 +1,7 @@
-# Computes the sufficiency of a candidate cause for an outcome
+# compute_sufficiency(): computes the sufficiency of a candidate cause for an outcome.
 
-Computes the sufficiency of a candidate cause for an outcome
+This function computes the sufficiency of a candidate cause for an
+outcome.
 
 ## Usage
 

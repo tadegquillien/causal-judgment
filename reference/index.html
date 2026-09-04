@@ -49,42 +49,42 @@
           <code><a href="ces.html">ces()</a></code>
 
         </dt>
-        <dd>Computes a judgment with the CES model</dd>
+        <dd>ces(): compute a judgment with the CES model.</dd>
 
         <dt>
 
           <code><a href="compute_counterfactual_value.html">compute_counterfactual_value()</a></code>
 
         </dt>
-        <dd>This helper function computes the value of Y conditioned on a counterfactual intervention on X, starting from a given world. We will use that function for computing both necessity and sufficiency. This function works recursively. Suppose Y depends directly on X: then the function can directly compute the effect of the intervention. But Y can also indirectly depend on X, for example via a chain X -&gt; Z -&gt; Y. To accommodate this kind of cases, we recursively call the compute_counterfactual_value() function on intermediate values, until we reach X.</dd>
+        <dd>compute_counterfactual_value(): compute the value of Y conditioned on a counterfactual intervention on X, starting from a given world.</dd>
 
         <dt>
 
           <code><a href="compute_judgment.html">compute_judgment()</a></code>
 
         </dt>
-        <dd>The general causal judgment function. It is essentially a wrapper over the ces() and ns() functions.</dd>
+        <dd>compute_judgment(): compute a causal judgment.</dd>
 
         <dt>
 
           <code><a href="compute_necessity.html">compute_necessity()</a></code>
 
         </dt>
-        <dd>Function to compute necessity: does intervening on X in the actual world flip the value of Y?</dd>
+        <dd>compute_necessity(): compute whether X was necessary for Y in the actual world.</dd>
 
         <dt>
 
           <code><a href="compute_probabilities.html">compute_probabilities()</a></code>
 
         </dt>
-        <dd>Compute the counterfactual joint probability distribution induced by a causal model and the state of the actual world.</dd>
+        <dd>compute_probability(): compute the probability distribution over counterfactual worlds induced by the causal model and the state of the actual world.</dd>
 
         <dt>
 
           <code><a href="compute_sufficiency.html">compute_sufficiency()</a></code>
 
         </dt>
-        <dd>Computes the sufficiency of a candidate cause for an outcome</dd>
+        <dd>compute_sufficiency(): computes the sufficiency of a candidate cause for an outcome.</dd>
 
         <dt>
 
@@ -105,14 +105,14 @@
           <code><a href="ns.html">ns()</a></code>
 
         </dt>
-        <dd>Function computing a judgment for the NS model</dd>
+        <dd>ns(): compute a judgment with the NS model.</dd>
 
         <dt>
 
           <code><a href="verif.html">verif()</a></code>
 
         </dt>
-        <dd>Verify consistency of an endogenous variable</dd>
+        <dd>verif(): verify consistency of an endogenous variable</dd>
       </dl></div>
   </main></div>
 

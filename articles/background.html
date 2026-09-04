@@ -112,6 +112,11 @@ al., 2017</a>) and the Counterfactual Effect Size (CES) model (<a href="https://
 2020</a>; <a href="https://quillienlab.github.io/Quillien%20&amp;%20Lucas%202023.pdf" class="external-link">Quillien
 &amp; Lucas, 2023</a>). See the linked papers for a formal description
 of these models. Here I discuss particular implementation details.</p>
+<p>Both models first generate a probability distribution over
+counterfactual worlds. The way this distribution is generated is
+described <a href="https://tadegquillien.github.io/causaljudgment/index.html#how-the-package-works">here</a>.
+Below I discuss the computations that are then applied on the basis of
+this distribution.</p>
 <div class="section level4">
 <h4 id="necessity-sufficiency-model">Necessity-Sufficiency model<a class="anchor" aria-label="anchor" href="#necessity-sufficiency-model"></a>
 </h4>
@@ -151,6 +156,11 @@ from happening. Necessity is 0 otherwise.</p>
 <div class="section level4">
 <h4 id="counterfactual-effect-size-model">Counterfactual Effect Size model<a class="anchor" aria-label="anchor" href="#counterfactual-effect-size-model"></a>
 </h4>
+<p>The CES model computes the Pearson correlation between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">C=c</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">E=e</annotation></semantics></math>
+in the distribution over counterfactual worlds.</p>
 <p>Our implementation of the CES model is identical to the version
 described in Quillien &amp; Lucas (2023), in settings where there is no
 confounding between

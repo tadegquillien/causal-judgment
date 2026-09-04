@@ -38,6 +38,13 @@ and the Counterfactual Effect Size (CES) model ([Quillien,
 See the linked papers for a formal description of these models. Here I
 discuss particular implementation details.
 
+Both models first generate a probability distribution over
+counterfactual worlds. The way this distribution is generated is
+described
+[here](https://tadegquillien.github.io/causaljudgment/index.html#how-the-package-works).
+Below I discuss the computations that are then applied on the basis of
+this distribution.
+
 #### Necessity-Sufficiency model
 
 Icard et al. (2017) posit that causal judgments are a weighted sum of
@@ -67,6 +74,9 @@ actual world, an intervention setting $`C`$ to $`\neg c`$ would prevent
 $`E=e`$ from happening. Necessity is 0 otherwise.
 
 #### Counterfactual Effect Size model
+
+The CES model computes the Pearson correlation between $`C=c`$ and
+$`E=e`$ in the distribution over counterfactual worlds.
 
 Our implementation of the CES model is identical to the version
 described in Quillien & Lucas (2023), in settings where there is no

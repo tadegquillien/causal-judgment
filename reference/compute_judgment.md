@@ -1,4 +1,4 @@
-# The general causal judgment function. It is essentially a wrapper over the ces() and ns() functions.
+# compute_judgment(): compute a causal judgment.
 
 The general causal judgment function. It is essentially a wrapper over
 the ces() and ns() functions.
